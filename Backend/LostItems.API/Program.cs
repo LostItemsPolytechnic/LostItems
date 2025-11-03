@@ -1,3 +1,6 @@
+using LostItems.API.Interfaces.Services;
+using LostItems.API.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -6,6 +9,11 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+//services
+builder.Services.AddScoped<IImageService, ImageService>();
+
+//repos
 
 var app = builder.Build();
 
