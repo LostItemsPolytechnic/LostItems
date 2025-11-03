@@ -19,14 +19,14 @@ public class AuthController : ControllerBase
         _configuration = configuration;
     }
 
-    public record RegisterDto(string Email, string Password);
-    public record LoginDto(string Email, string Password);
+    public record RegisterDto(string Username, string Password);
+    public record LoginDto(string Username, string Password);
     public record AuthResponseDto(string Token);
 
     [HttpPost("register")]
     public async Task<IActionResult> Register([FromBody] RegisterDto dto)
     {
-        var user = new ApplicationUser { UserName = dto.Email, Email = dto.Email };
+        var user = new ApplicationUser { UserName = dto.Username, Email = dto.Username + "@placeholder.com" };
         var result = await _userManager.CreateAsync(user, dto.Password);
 
         if (!result.Succeeded)
@@ -40,7 +40,8 @@ public class AuthController : ControllerBase
     [HttpPost("login")]
     public async Task<IActionResult> Login([FromBody] LoginDto dto)
     {
-        var user = await _userManager.FindByEmailAsync(dto.Email);
+        var user = await _userManager.FindByEmailAsync(dto.Username);
+        
         if (user == null || !await _userManager.CheckPasswordAsync(user, dto.Password))
         {
             return Unauthorized("Invalid credentials");
@@ -57,8 +58,8 @@ public class AuthController : ControllerBase
 
         var claims = new[]
         {
-            new Claim(JwtRegisteredClaimNames.Sub, user.Email!),
-            new Claim(JwtRegisteredClaimNames.Email, user.Email!),
+            new Claim(JwtRegisteredClaimNames.Sub, user.UserName!),
+            new Claim(ClaimTypes.Name, user.UserName!),
             new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
         };
 
