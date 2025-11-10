@@ -13,15 +13,9 @@ namespace LostItems.API.Services
             _itemRepo = itemRepo;
         }
 
-
-        public byte[] GetImage(string imageUrl)
+        public Task<string> UploadImage(byte[] imageData)
         {
-            _itemRepo.SaveChanges();
-        }
-
-        public string UploadImage(byte[] imageData, string fileName)
-        {
-            
+            throw new NotImplementedException();
         }
     }
 }
