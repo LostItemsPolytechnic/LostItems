@@ -1,9 +1,8 @@
-using LostItems_LPNU.Data;
-using LostItems_LPNU.Interfaces;
-using LostItems_LPNU.Models;
-using Microsoft.EntityFrameworkCore;
+using LostItems.API.Interfaces;
+using LostItems.API.Models;
+using LostItems.API.Data;
 
-namespace LostItems_LPNU.Repositories
+namespace LostItems.API.Repositories
 {
     public class ItemRepository : IItemRepository
     {

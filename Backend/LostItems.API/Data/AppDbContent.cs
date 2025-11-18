@@ -1,7 +1,6 @@
-using Microsoft.EntityFrameworkCore;
-using LPNU_Library.Models;
+using LostItems.API.Models;
 
-namespace LPNU_Library.Data
+namespace LostItems.API.Data
 {
 	public class AppDbContext : DbContext
 	{

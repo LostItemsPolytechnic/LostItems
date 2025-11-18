@@ -1,7 +1,6 @@
-using LPNU_LostAndFound.Models;
-using System.Collections.Generic;
+using LostItems.API.Models;
 
-namespace LPNU_LostAndFound.Interfaces
+namespace LostItems.API.Interfaces
 {
     public interface IReturnedItemRepository
     {

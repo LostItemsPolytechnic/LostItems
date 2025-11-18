@@ -1,4 +1,4 @@
-namespace LPNU_LostAndFound.Models
+namespace LostItems.API.Models
 {
     public class Item
     {

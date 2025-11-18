@@ -1,6 +1,4 @@
-using System;
-
-namespace LPNU_LostAndFound.Models
+namespace LostItems.API.Models
 {
     public class ReturnedItem
     {
