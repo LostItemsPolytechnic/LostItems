@@ -1,6 +1,7 @@
 using LostItems.API.Data;
 using LostItems.API.Interfaces;
 using LostItems.API.Repositories;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 

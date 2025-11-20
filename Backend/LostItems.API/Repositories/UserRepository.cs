@@ -1,6 +1,7 @@
 using LostItems.API.Interfaces;
 using LostItems.API.Models;
 using LostItems.API.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace LostItems.API.Repositories
 {
@@ -8,9 +9,9 @@ namespace LostItems.API.Repositories
     {
         private readonly AppDbContext _db;
 
-        public UserRepository(AppDbContext db)
+       public UserRepository(AppDbContext db)
         {
-            _db = db;
+           _db = db;
         }
 
         public async Task AddUserAsync(User user)

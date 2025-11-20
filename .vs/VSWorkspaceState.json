@@ -9,6 +9,6 @@
     "\\Backend\\LostItems.API\\Properties",
     "\\Backend\\LostItems.API\\Repositories"
   ],
-  "SelectedNode": "\\Backend\\LostItems.API",
+  "SelectedNode": "\\Backend\\LostItems.API\\Program.cs",
   "PreviewInSolutionExplorer": false
 }

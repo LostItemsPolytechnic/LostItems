@@ -1,6 +1,7 @@
 using LostItems.API.Interfaces;
 using LostItems.API.Models;
 using LostItems.API.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace LostItems.API.Repositories
 {

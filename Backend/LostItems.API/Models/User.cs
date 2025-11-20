@@ -2,7 +2,8 @@
 using System.ComponentModel.DataAnnotations;
 
 namespace LostItems.API.Models
-{
+{ 
+
     public class User
     {
         [Key]

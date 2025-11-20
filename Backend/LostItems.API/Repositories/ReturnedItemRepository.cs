@@ -1,34 +1,33 @@
 using LostItems.API.Data;
 using LostItems.API.Interfaces;
 using LostItems.API.Models;
-
+using Microsoft.EntityFrameworkCore;
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace LostItems.API.Repositories
 {
-    public class UserRepository : IUserRepository
+    public class ReturnedItemRepository : IReturnedItemRepository
     {
         private readonly AppDbContext _db;
 
-        public UserRepository(AppDbContext db)
+        public ReturnedItemRepository(AppDbContext db)
         {
             _db = db;
         }
 
-        public async Task AddUserAsync(User entity)
+        public async Task AddReturnedItemAsync(ReturnedItem ret)
         {
-            entity.Id = Guid.NewGuid();
-            await _db.Users.AddAsync(entity);
+            ret.Id = Guid.NewGuid();
+            ret.RetDate = DateTime.UtcNow;
+            await _db.ReturnedItems.AddAsync(ret);
             await _db.SaveChangesAsync();
         }
 
-        public async Task<List<User>> GetAllUsersAsync()
+        public async Task<List<ReturnedItem>> GetAllReturnedAsync()
         {
-            return await _db.Users.ToListAsync();
-        }
-
-        public async Task<User?> GetUserByIdAsync(Guid id)
-        {
-            return await _db.Users.FirstOrDefaultAsync(u => u.Id == id);
+            return await _db.ReturnedItems.ToListAsync();
         }
     }
 }
