@@ -1,7 +1,48 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\userPC\\Documents\\GitHub\\LostItems\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\userPC\\Documents\\GitHub\\LostItems\\Backend\\LostItems.API\\Repositories\\UserRepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Backend\\LostItems.API\\Repositories\\UserRepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\userPC\\Documents\\GitHub\\LostItems\\Backend\\LostItems.API\\Repositories\\ReturnedItemRepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Backend\\LostItems.API\\Repositories\\ReturnedItemRepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\userPC\\Documents\\GitHub\\LostItems\\Backend\\LostItems.API\\Repositories\\ItemRepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Backend\\LostItems.API\\Repositories\\ItemRepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\userPC\\Documents\\GitHub\\LostItems\\Backend\\LostItems.API\\Models\\User.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Backend\\LostItems.API\\Models\\User.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\userPC\\Documents\\GitHub\\LostItems\\Backend\\LostItems.API\\Models\\ReturnedItem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Backend\\LostItems.API\\Models\\ReturnedItem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\userPC\\Documents\\GitHub\\LostItems\\Backend\\LostItems.API\\Models\\Item.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Backend\\LostItems.API\\Models\\Item.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\userPC\\Documents\\GitHub\\LostItems\\Backend\\LostItems.API\\Interfaces\\IUserRepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Backend\\LostItems.API\\Interfaces\\IUserRepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\userPC\\Documents\\GitHub\\LostItems\\Backend\\LostItems.API\\Interfaces\\IReturnedItemRepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Backend\\LostItems.API\\Interfaces\\IReturnedItemRepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\userPC\\Documents\\GitHub\\LostItems\\Backend\\LostItems.API\\Interfaces\\IItemRepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Backend\\LostItems.API\\Interfaces\\IItemRepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\userPC\\Documents\\GitHub\\LostItems\\Backend\\LostItems.API\\Data\\AppDbContent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Backend\\LostItems.API\\Data\\AppDbContent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,11 +50,141 @@
       "DocumentGroups": [
         {
           "DockedWidth": 1550,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:1:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "UserRepository.cs",
+              "DocumentMoniker": "C:\\Users\\userPC\\Documents\\GitHub\\LostItems\\Backend\\LostItems.API\\Repositories\\UserRepository.cs",
+              "RelativeDocumentMoniker": "Backend\\LostItems.API\\Repositories\\UserRepository.cs",
+              "ToolTip": "C:\\Users\\userPC\\Documents\\GitHub\\LostItems\\Backend\\LostItems.API\\Repositories\\UserRepository.cs",
+              "RelativeToolTip": "Backend\\LostItems.API\\Repositories\\UserRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-20T18:59:10.99Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ReturnedItemRepository.cs",
+              "DocumentMoniker": "C:\\Users\\userPC\\Documents\\GitHub\\LostItems\\Backend\\LostItems.API\\Repositories\\ReturnedItemRepository.cs",
+              "RelativeDocumentMoniker": "Backend\\LostItems.API\\Repositories\\ReturnedItemRepository.cs",
+              "ToolTip": "C:\\Users\\userPC\\Documents\\GitHub\\LostItems\\Backend\\LostItems.API\\Repositories\\ReturnedItemRepository.cs",
+              "RelativeToolTip": "Backend\\LostItems.API\\Repositories\\ReturnedItemRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-20T18:59:09.486Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ItemRepository.cs",
+              "DocumentMoniker": "C:\\Users\\userPC\\Documents\\GitHub\\LostItems\\Backend\\LostItems.API\\Repositories\\ItemRepository.cs",
+              "RelativeDocumentMoniker": "Backend\\LostItems.API\\Repositories\\ItemRepository.cs",
+              "ToolTip": "C:\\Users\\userPC\\Documents\\GitHub\\LostItems\\Backend\\LostItems.API\\Repositories\\ItemRepository.cs",
+              "RelativeToolTip": "Backend\\LostItems.API\\Repositories\\ItemRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-20T18:59:07.485Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "User.cs",
+              "DocumentMoniker": "C:\\Users\\userPC\\Documents\\GitHub\\LostItems\\Backend\\LostItems.API\\Models\\User.cs",
+              "RelativeDocumentMoniker": "Backend\\LostItems.API\\Models\\User.cs",
+              "ToolTip": "C:\\Users\\userPC\\Documents\\GitHub\\LostItems\\Backend\\LostItems.API\\Models\\User.cs",
+              "RelativeToolTip": "Backend\\LostItems.API\\Models\\User.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-20T18:59:03.735Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ReturnedItem.cs",
+              "DocumentMoniker": "C:\\Users\\userPC\\Documents\\GitHub\\LostItems\\Backend\\LostItems.API\\Models\\ReturnedItem.cs",
+              "RelativeDocumentMoniker": "Backend\\LostItems.API\\Models\\ReturnedItem.cs",
+              "ToolTip": "C:\\Users\\userPC\\Documents\\GitHub\\LostItems\\Backend\\LostItems.API\\Models\\ReturnedItem.cs",
+              "RelativeToolTip": "Backend\\LostItems.API\\Models\\ReturnedItem.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-20T18:59:00.355Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Item.cs",
+              "DocumentMoniker": "C:\\Users\\userPC\\Documents\\GitHub\\LostItems\\Backend\\LostItems.API\\Models\\Item.cs",
+              "RelativeDocumentMoniker": "Backend\\LostItems.API\\Models\\Item.cs",
+              "ToolTip": "C:\\Users\\userPC\\Documents\\GitHub\\LostItems\\Backend\\LostItems.API\\Models\\Item.cs",
+              "RelativeToolTip": "Backend\\LostItems.API\\Models\\Item.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-20T18:58:58.741Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "IUserRepository.cs",
+              "DocumentMoniker": "C:\\Users\\userPC\\Documents\\GitHub\\LostItems\\Backend\\LostItems.API\\Interfaces\\IUserRepository.cs",
+              "RelativeDocumentMoniker": "Backend\\LostItems.API\\Interfaces\\IUserRepository.cs",
+              "ToolTip": "C:\\Users\\userPC\\Documents\\GitHub\\LostItems\\Backend\\LostItems.API\\Interfaces\\IUserRepository.cs",
+              "RelativeToolTip": "Backend\\LostItems.API\\Interfaces\\IUserRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-20T18:58:57Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "IReturnedItemRepository.cs",
+              "DocumentMoniker": "C:\\Users\\userPC\\Documents\\GitHub\\LostItems\\Backend\\LostItems.API\\Interfaces\\IReturnedItemRepository.cs",
+              "RelativeDocumentMoniker": "Backend\\LostItems.API\\Interfaces\\IReturnedItemRepository.cs",
+              "ToolTip": "C:\\Users\\userPC\\Documents\\GitHub\\LostItems\\Backend\\LostItems.API\\Interfaces\\IReturnedItemRepository.cs",
+              "RelativeToolTip": "Backend\\LostItems.API\\Interfaces\\IReturnedItemRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-20T18:58:55.418Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "IItemRepository.cs",
+              "DocumentMoniker": "C:\\Users\\userPC\\Documents\\GitHub\\LostItems\\Backend\\LostItems.API\\Interfaces\\IItemRepository.cs",
+              "RelativeDocumentMoniker": "Backend\\LostItems.API\\Interfaces\\IItemRepository.cs",
+              "ToolTip": "C:\\Users\\userPC\\Documents\\GitHub\\LostItems\\Backend\\LostItems.API\\Interfaces\\IItemRepository.cs",
+              "RelativeToolTip": "Backend\\LostItems.API\\Interfaces\\IItemRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-20T18:58:53.811Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "AppDbContent.cs",
+              "DocumentMoniker": "C:\\Users\\userPC\\Documents\\GitHub\\LostItems\\Backend\\LostItems.API\\Data\\AppDbContent.cs",
+              "RelativeDocumentMoniker": "Backend\\LostItems.API\\Data\\AppDbContent.cs",
+              "ToolTip": "C:\\Users\\userPC\\Documents\\GitHub\\LostItems\\Backend\\LostItems.API\\Data\\AppDbContent.cs",
+              "RelativeToolTip": "Backend\\LostItems.API\\Data\\AppDbContent.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-20T18:58:50.89Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Bookmark",
