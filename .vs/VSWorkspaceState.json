@@ -1,0 +1,14 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\Backend",
+    "\\Backend\\LostItems.API",
+    "\\Backend\\LostItems.API\\Data",
+    "\\Backend\\LostItems.API\\Interfaces",
+    "\\Backend\\LostItems.API\\Models",
+    "\\Backend\\LostItems.API\\Properties",
+    "\\Backend\\LostItems.API\\Repositories"
+  ],
+  "SelectedNode": "\\Backend\\LostItems.API",
+  "PreviewInSolutionExplorer": false
+}
