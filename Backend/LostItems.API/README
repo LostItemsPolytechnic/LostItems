@@ -1,0 +1,50 @@
+Платформа: .NET 8.0
+
+ORM: Entity Framework Core 8.0
+База даних: Microsoft SQL Server
+Провайдер: Microsoft.EntityFrameworkCore.SqlServer
+
+
+Як запустити проєкт
+
+1. Попередні вимоги
+Переконайтеся, що у вас встановлено:
+.NET SDK 8.0
+SQL Server (LocalDB або повноцінний Server)
+Інструменти EF Core CLI (якщо ні, виконайте: dotnet tool install --global dotnet-ef)
+
+2. Налаштування підключення
+Відкрийте файл appsettings.json у папці LostItems.API та перевірте рядок підключення (ConnectionStrings). Він має виглядати приблизно так:
+JSON
+"ConnectionStrings": {
+  "DefaultConnection": "Server=(localdb)\\mssqllocaldb;Database=LostItemsDb;Trusted_Connection=True;MultipleActiveResultSets=true"
+}
+Примітка: Ви можете змінити Server та Database на ваші власні налаштування SQL Server.
+
+
+3. Встановлення залежностей
+Перед запуском необхідно підтягнути всі бібліотеки (EF Core, SQL Driver тощо), які були додані в цій гілці. Відкрийте термінал у папці LostItems.API та виконайте:
+Bash
+dotnet restore
+
+
+Робота з Базою Даних (EF Core)
+Оскільки це перше налаштування БД, вам потрібно застосувати міграції, щоб створити таблиці у вашій базі даних.
+
+Створення бази даних та застосування міграцій
+Виконайте команду в терміналі (перебуваючи в папці LostItems.API):
+Bash
+dotnet ef database update
+Ця команда автоматично створить базу даних (якщо її немає) та всі таблиці відповідно до ваших моделей.
+
+
+Створення нової міграції (якщо ви змінили моделі)
+Якщо ви додали нові властивості до класів або створили нові сутності:
+Bash
+dotnet ef migrations add НазваВашоїЗміни
+
+
+Структура змін у цій гілці
+Data/ — тут знаходиться AppDbContext (або AppDbContent), який керує з'єднанням з БД.
+Models/ (або Entities/) — класи, що відображають таблиці БД.
+Program.cs — додано сервіс builder.Services.AddDbContext... для реєстрації SQL Server.
