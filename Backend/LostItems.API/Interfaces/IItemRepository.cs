@@ -1,11 +1,14 @@
 using LostItems.API.Models;
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace LostItems.API.Interfaces
 {
     public interface IItemRepository
     {
-        void AddItem(Item item);
-        IEnumerable<Item> GetAllItems();
-        void UpdateItemStatus(int id, string status);
+        Task AddItemAsync(Item item);
+        Task<List<Item>> GetAllItemsAsync();
+        Task UpdateItemStatusAsync(Guid id, string status);
     }
 }

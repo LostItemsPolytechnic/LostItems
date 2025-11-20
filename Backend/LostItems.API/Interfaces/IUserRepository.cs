@@ -1,10 +1,14 @@
 using LostItems.API.Models;
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace LostItems.API.Interfaces
 {
     public interface IUserRepository
     {
-        void AddUser(User user);
-        IEnumerable<User> GetAllUsers();
+        Task AddUserAsync(User user);
+        Task<List<User>> GetAllUsersAsync();
+        Task<User?> GetUserByIdAsync(Guid id);
     }
 }

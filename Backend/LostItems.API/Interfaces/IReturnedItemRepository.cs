@@ -1,10 +1,13 @@
 using LostItems.API.Models;
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace LostItems.API.Interfaces
 {
     public interface IReturnedItemRepository
     {
-        void AddReturnedItem(ReturnedItem ret);
-        IEnumerable<ReturnedItem> GetAllReturned();
+        Task AddReturnedItemAsync(ReturnedItem ret);
+        Task<List<ReturnedItem>> GetAllReturnedAsync();
     }
 }

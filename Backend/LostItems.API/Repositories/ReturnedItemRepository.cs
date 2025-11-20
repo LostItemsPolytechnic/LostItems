@@ -1,31 +1,34 @@
+using LostItems.API.Data;
 using LostItems.API.Interfaces;
 using LostItems.API.Models;
-using LostItems.API.Data;
+
 
 namespace LostItems.API.Repositories
 {
-    public class ReturnedItemRepository : IReturnedItemRepository
+    public class UserRepository : IUserRepository
     {
         private readonly AppDbContext _db;
 
-        public ReturnedItemRepository(AppDbContext db)
+        public UserRepository(AppDbContext db)
         {
             _db = db;
         }
 
-        public async Task AddReturnedItemAsync(ReturnedItem ret)
+        public async Task AddUserAsync(User entity)
         {
-            ret.Id = Guid.NewGuid();
-            ret.RetDate = DateTime.UtcNow;
-
-            await _db.ReturnedItems.AddAsync(ret);
+            entity.Id = Guid.NewGuid();
+            await _db.Users.AddAsync(entity);
             await _db.SaveChangesAsync();
         }
 
-        public async Task<List<ReturnedItem>> GetAllReturnedAsync()
+        public async Task<List<User>> GetAllUsersAsync()
         {
-            return await _db.ReturnedItems.ToListAsync();
+            return await _db.Users.ToListAsync();
+        }
+
+        public async Task<User?> GetUserByIdAsync(Guid id)
+        {
+            return await _db.Users.FirstOrDefaultAsync(u => u.Id == id);
         }
     }
 }
-

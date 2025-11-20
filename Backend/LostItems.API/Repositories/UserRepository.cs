@@ -1,5 +1,6 @@
 using LostItems.API.Interfaces;
 using LostItems.API.Models;
+using LostItems.API.Data;
 
 namespace LostItems.API.Repositories
 {
