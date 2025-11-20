@@ -1,50 +1,19 @@
-Платформа: .NET 8.0
+Platform: .NET 8.0
 
-ORM: Entity Framework Core 8.0
-База даних: Microsoft SQL Server
-Провайдер: Microsoft.EntityFrameworkCore.SqlServer
+ORM: Entity Framework Core 8.0 Database: Microsoft SQL Server Provider: Microsoft.EntityFrameworkCore.SqlServer
 
+How to run the project
 
-Як запустити проєкт
+Prerequisites Ensure you have the following installed: .NET SDK 8.0 SQL Server (LocalDB or full Server) EF Core CLI tools (if not, run: dotnet tool install --global dotnet-ef)
 
-1. Попередні вимоги
-Переконайтеся, що у вас встановлено:
-.NET SDK 8.0
-SQL Server (LocalDB або повноцінний Server)
-Інструменти EF Core CLI (якщо ні, виконайте: dotnet tool install --global dotnet-ef)
+Connection setup Open the appsettings.json file in the LostItems.API folder and check the connection string (ConnectionStrings). It should look approximately like this: "ConnectionStrings": { "DefaultConnection": "Server=(localdb)\mssqllocaldb;Database=LostItemsDb;Trusted_Connection=True;MultipleActiveResultSets=true" } Note: You can change the Server and Database to your own SQL Server settings.
 
-2. Налаштування підключення
-Відкрийте файл appsettings.json у папці LostItems.API та перевірте рядок підключення (ConnectionStrings). Він має виглядати приблизно так:
-JSON
-"ConnectionStrings": {
-  "DefaultConnection": "Server=(localdb)\\mssqllocaldb;Database=LostItemsDb;Trusted_Connection=True;MultipleActiveResultSets=true"
-}
-Примітка: Ви можете змінити Server та Database на ваші власні налаштування SQL Server.
+Installing dependencies Before running, you need to fetch all libraries (EF Core, SQL Driver, etc.) that were added in this branch. Open a terminal in the LostItems.API folder and run: dotnet restore
 
+Database Operations (EF Core) Since this is the initial DB setup, you need to apply migrations to create tables in your database.
 
-3. Встановлення залежностей
-Перед запуском необхідно підтягнути всі бібліотеки (EF Core, SQL Driver тощо), які були додані в цій гілці. Відкрийте термінал у папці LostItems.API та виконайте:
-Bash
-dotnet restore
+Creating the database and applying migrations Run the command in the terminal (while inside the LostItems.API folder): dotnet ef database update This command will automatically create the database (if it does not exist) and all tables according to your models.
 
+Creating a new migration (if you changed models) If you added new properties to classes or created new entities: dotnet ef migrations add YourChangeName
 
-Робота з Базою Даних (EF Core)
-Оскільки це перше налаштування БД, вам потрібно застосувати міграції, щоб створити таблиці у вашій базі даних.
-
-Створення бази даних та застосування міграцій
-Виконайте команду в терміналі (перебуваючи в папці LostItems.API):
-Bash
-dotnet ef database update
-Ця команда автоматично створить базу даних (якщо її немає) та всі таблиці відповідно до ваших моделей.
-
-
-Створення нової міграції (якщо ви змінили моделі)
-Якщо ви додали нові властивості до класів або створили нові сутності:
-Bash
-dotnet ef migrations add НазваВашоїЗміни
-
-
-Структура змін у цій гілці
-Data/ — тут знаходиться AppDbContext (або AppDbContent), який керує з'єднанням з БД.
-Models/ (або Entities/) — класи, що відображають таблиці БД.
-Program.cs — додано сервіс builder.Services.AddDbContext... для реєстрації SQL Server.
+Structure of changes in this branch Data/ — contains AppDbContext (or AppDbContent), which manages the DB connection. Models/ (or Entities/) — classes representing DB tables. Program.cs — added the builder.Services.AddDbContext... service to register SQL Server.
