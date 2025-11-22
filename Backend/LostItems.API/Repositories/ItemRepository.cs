@@ -2,6 +2,7 @@ using LostItems.API.Interfaces;
 using LostItems.API.Models;
 using LostItems.API.Data;
 using Microsoft.EntityFrameworkCore;
+using LostItems.API.Enums;
 
 namespace LostItems.API.Repositories
 {
@@ -26,7 +27,7 @@ namespace LostItems.API.Repositories
             return await _db.Items.ToListAsync();
         }
 
-        public async Task UpdateItemStatusAsync(Guid id, string newStatus)
+        public async Task UpdateItemStatusAsync(Guid id, ItemStatusEnum newStatus)
         {
             var item = await _db.Items.FirstOrDefaultAsync(x => x.Id == id);
             if (item == null) return;

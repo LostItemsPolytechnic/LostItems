@@ -9,9 +9,9 @@ namespace LostItems.API.Repositories
     {
         private readonly AppDbContext _db;
 
-       public UserRepository(AppDbContext db)
+        public UserRepository(AppDbContext db)
         {
-           _db = db;
+            _db = db;
         }
 
         public async Task AddUserAsync(User user)
@@ -26,7 +26,7 @@ namespace LostItems.API.Repositories
             return await _db.Users.ToListAsync();
         }
 
-        public async Task<User> GetUserByIdAsync(Guid id)
+        public async Task<User?> GetUserByIdAsync(Guid id)
         {
             return await _db.Users.FirstOrDefaultAsync(x => x.Id == id);
         }

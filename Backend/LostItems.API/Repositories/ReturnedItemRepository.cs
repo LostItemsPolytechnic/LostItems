@@ -20,7 +20,6 @@ namespace LostItems.API.Repositories
         public async Task AddReturnedItemAsync(ReturnedItem ret)
         {
             ret.Id = Guid.NewGuid();
-            ret.RetDate = DateTime.UtcNow;
             await _db.ReturnedItems.AddAsync(ret);
             await _db.SaveChangesAsync();
         }

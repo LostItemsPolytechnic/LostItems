@@ -1,7 +1,5 @@
+using LostItems.API.Enums;
 using LostItems.API.Models;
-using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 
 namespace LostItems.API.Interfaces
 {
@@ -9,6 +7,6 @@ namespace LostItems.API.Interfaces
     {
         Task AddItemAsync(Item item);
         Task<List<Item>> GetAllItemsAsync();
-        Task UpdateItemStatusAsync(Guid id, string status);
+        Task UpdateItemStatusAsync(Guid id, ItemStatusEnum status);
     }
 }

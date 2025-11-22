@@ -1,9 +1,8 @@
-﻿using System;
+﻿using LostItems.API.Enums;
 using System.ComponentModel.DataAnnotations;
 
 namespace LostItems.API.Models
-{ 
-
+{
     public class User
     {
         [Key]
@@ -13,7 +12,7 @@ namespace LostItems.API.Models
         public string Email { get; set; }
 
         [Required, MinLength(6)]
-        public string Password { get; set; }
+        public string PasswordHash { get; set; }
 
         [Range(0, int.MaxValue)]
         public int NumOfFoundedItems { get; set; }
@@ -21,7 +20,7 @@ namespace LostItems.API.Models
         [Range(0, int.MaxValue)]
         public int NumOfLostItems { get; set; }
 
-        [MaxLength(50)]
-        public string Status { get; set; }
+        [Required]
+        public RoleEnum Role { get; set; } = RoleEnum.User;
     }
 }
