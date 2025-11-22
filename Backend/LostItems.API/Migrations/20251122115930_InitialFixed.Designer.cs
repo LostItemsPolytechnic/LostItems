@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LostItems.API.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20251122113822_FixTables")]
-    partial class FixTables
+    [Migration("20251122115930_InitialFixed")]
+    partial class InitialFixed
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -118,7 +118,7 @@ namespace LostItems.API.Migrations
                     b.HasOne("LostItems.API.Models.User", "Founder")
                         .WithMany()
                         .HasForeignKey("FounderId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("Founder");
@@ -135,7 +135,7 @@ namespace LostItems.API.Migrations
                     b.HasOne("LostItems.API.Models.User", "Loster")
                         .WithMany()
                         .HasForeignKey("LosterId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("Item");

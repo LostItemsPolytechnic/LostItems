@@ -115,7 +115,7 @@ namespace LostItems.API.Migrations
                     b.HasOne("LostItems.API.Models.User", "Founder")
                         .WithMany()
                         .HasForeignKey("FounderId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("Founder");
@@ -132,7 +132,7 @@ namespace LostItems.API.Migrations
                     b.HasOne("LostItems.API.Models.User", "Loster")
                         .WithMany()
                         .HasForeignKey("LosterId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("Item");
