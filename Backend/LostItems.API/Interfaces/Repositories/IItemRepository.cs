@@ -1,7 +1,7 @@
 using LostItems.API.Enums;
 using LostItems.API.Models;
 
-namespace LostItems.API.Interfaces
+namespace LostItems.API.Interfaces.Repositories
 {
     public interface IItemRepository
     {

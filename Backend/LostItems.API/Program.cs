@@ -1,5 +1,5 @@
 using LostItems.API.Data;
-using LostItems.API.Interfaces;
+using LostItems.API.Interfaces.Repositories;
 using LostItems.API.Repositories;
 using Microsoft.EntityFrameworkCore;
 

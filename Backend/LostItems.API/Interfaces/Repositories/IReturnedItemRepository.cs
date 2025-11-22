@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace LostItems.API.Interfaces
+namespace LostItems.API.Interfaces.Repositories
 {
     public interface IReturnedItemRepository
     {

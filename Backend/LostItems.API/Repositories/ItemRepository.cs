@@ -1,8 +1,8 @@
-using LostItems.API.Interfaces;
 using LostItems.API.Models;
 using LostItems.API.Data;
 using Microsoft.EntityFrameworkCore;
 using LostItems.API.Enums;
+using LostItems.API.Interfaces.Repositories;
 
 namespace LostItems.API.Repositories
 {
