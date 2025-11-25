@@ -16,6 +16,9 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+//services
+//repos
+
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
