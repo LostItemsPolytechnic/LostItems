@@ -6,5 +6,6 @@ namespace LostItems.API.Interfaces.Services
     {
         List<ItemDto> GetSearchedItems(string searchInput, List<ItemDto> items);
         List<ItemDto> FilterByDateTime(DateTime startAt, List<ItemDto> items, DateTime? endTime);
+        List<ItemDto> FilterByBuilding(string building, List<ItemDto> items);
     }
 }
