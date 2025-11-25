@@ -11,8 +11,6 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 //services
-builder.Services.AddScoped<IImageService, ImageService>();
-
 //repos
 
 var app = builder.Build();
