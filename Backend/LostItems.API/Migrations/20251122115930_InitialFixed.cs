@@ -89,7 +89,7 @@ namespace LostItems.API.Migrations
             migrationBuilder.CreateIndex(
                 name: "IX_ReturnedItems_LosterId",
                 table: "ReturnedItems",
-                column: "LosterId");
+                column: "LoserId");
         }
 
         /// <inheritdoc />

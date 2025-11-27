@@ -40,12 +40,12 @@ namespace LostItems.API.Migrations
                     b.Property<bool>("IsReturned")
                         .HasColumnType("bit");
 
-                    b.Property<string>("ItemDescription")
+                    b.Property<string>("Description")
                         .IsRequired()
                         .HasMaxLength(500)
                         .HasColumnType("nvarchar(500)");
 
-                    b.Property<string>("ItemName")
+                    b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(200)
                         .HasColumnType("nvarchar(200)");
@@ -69,7 +69,7 @@ namespace LostItems.API.Migrations
                     b.Property<Guid>("ItemId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("LosterId")
+                    b.Property<Guid>("LoserId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("RetDate")
@@ -79,7 +79,7 @@ namespace LostItems.API.Migrations
 
                     b.HasIndex("ItemId");
 
-                    b.HasIndex("LosterId");
+                    b.HasIndex("LoserId");
 
                     b.ToTable("ReturnedItems");
                 });
@@ -134,7 +134,7 @@ namespace LostItems.API.Migrations
 
                     b.HasOne("LostItems.API.Models.User", "Loster")
                         .WithMany()
-                        .HasForeignKey("LosterId")
+                        .HasForeignKey("LoserId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 

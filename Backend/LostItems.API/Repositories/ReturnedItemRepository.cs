@@ -2,9 +2,6 @@ using LostItems.API.Data;
 using LostItems.API.Interfaces.Repositories;
 using LostItems.API.Models;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 
 namespace LostItems.API.Repositories
 {
@@ -17,14 +14,14 @@ namespace LostItems.API.Repositories
             _db = db;
         }
 
-        public async Task AddReturnedItemAsync(ReturnedItem ret)
+        public async Task AddAsync(ReturnedItem ret)
         {
             ret.Id = Guid.NewGuid();
             await _db.ReturnedItems.AddAsync(ret);
             await _db.SaveChangesAsync();
         }
 
-        public async Task<List<ReturnedItem>> GetAllReturnedAsync()
+        public async Task<List<ReturnedItem>> GetAllAsync()
         {
             return await _db.ReturnedItems.ToListAsync();
         }

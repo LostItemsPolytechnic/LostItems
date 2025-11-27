@@ -13,10 +13,10 @@ namespace LostItems.API.Models
         public DateTime RetDate { get; private set; } = DateTime.UtcNow;
 
         [Required]
-        public Guid LosterId { get; set; }
+        public Guid LoserId { get; set; }
 
-        [ForeignKey("LosterId")]
-        public User Loster { get; set; }
+        [ForeignKey("LoserId")]
+        public User Loser { get; set; }
 
         [Required]
         public Guid ItemId { get; set; }
