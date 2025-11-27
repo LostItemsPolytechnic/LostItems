@@ -43,7 +43,7 @@ namespace LostItems.API.Controllers
             return Created();
         }
 
-        [HttpPut("{id}")]
+        [HttpPut]
         public async Task<IActionResult> Update(Guid id, [FromBody] ItemDto dto)
         {
             var updated = await _itemRepo.UpdateAsync(dto);

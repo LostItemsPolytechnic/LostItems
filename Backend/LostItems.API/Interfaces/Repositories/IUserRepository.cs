@@ -7,8 +7,8 @@ namespace LostItems.API.Interfaces.Repositories
 {
     public interface IUserRepository
     {
-        Task AddUserAsync(User user);
-        Task<List<User>> GetAllUsersAsync();
-        Task<User?> GetUserByIdAsync(Guid id);
+        Task AddAsync(User user);
+        Task<List<User>> GetAllAsync();
+        Task<User?> GetByIdAsync(Guid id);
     }
 }

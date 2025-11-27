@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LostItems.API.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20251127121139_FixItemFieldNames")]
-    partial class FixItemFieldNames
+    [Migration("20251127200949_InternalFixForUpdate")]
+    partial class InternalFixForUpdate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

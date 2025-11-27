@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace LostItems.API.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialFixed : Migration
+    public partial class InternalFix : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -32,12 +32,12 @@ namespace LostItems.API.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    ItemName = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: false),
-                    ItemDescription = table.Column<string>(type: "nvarchar(500)", maxLength: 500, nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: false),
+                    Description = table.Column<string>(type: "nvarchar(500)", maxLength: 500, nullable: false),
                     FoundDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     ItemStatus = table.Column<int>(type: "int", nullable: false),
-                    IsReturned = table.Column<bool>(type: "bit", nullable: false),
-                    FounderId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
+                    FounderId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Location = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -56,7 +56,7 @@ namespace LostItems.API.Migrations
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     RetDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    LosterId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    LoserId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     ItemId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                 },
                 constraints: table =>
@@ -69,8 +69,8 @@ namespace LostItems.API.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_ReturnedItems_Users_LosterId",
-                        column: x => x.LosterId,
+                        name: "FK_ReturnedItems_Users_LoserId",
+                        column: x => x.LoserId,
                         principalTable: "Users",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
@@ -87,7 +87,7 @@ namespace LostItems.API.Migrations
                 column: "ItemId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_ReturnedItems_LosterId",
+                name: "IX_ReturnedItems_LoserId",
                 table: "ReturnedItems",
                 column: "LoserId");
         }

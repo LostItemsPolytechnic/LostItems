@@ -24,7 +24,8 @@ namespace LostItems.API.Repositories
                 Name = item.Name,
                 Description = item.Description,
                 Location = item.Location,
-                ItemStatus = ItemStatusEnum.Found
+                ItemStatus = ItemStatusEnum.Found,
+                FounderId = item.FounderId,
             };
 
             await _db.Items.AddAsync(itemModel);

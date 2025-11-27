@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LostItems.API.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20251122115930_InitialFixed")]
-    partial class InitialFixed
+    [Migration("20251127200716_InternalFix")]
+    partial class InternalFix
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -31,27 +31,29 @@ namespace LostItems.API.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
+
                     b.Property<DateTime>("FoundDate")
                         .HasColumnType("datetime2");
 
                     b.Property<Guid>("FounderId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<bool>("IsReturned")
-                        .HasColumnType("bit");
+                    b.Property<int>("ItemStatus")
+                        .HasColumnType("int");
 
-                    b.Property<string>("Description")
+                    b.Property<string>("Location")
                         .IsRequired()
-                        .HasMaxLength(500)
-                        .HasColumnType("nvarchar(500)");
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(200)
                         .HasColumnType("nvarchar(200)");
-
-                    b.Property<int>("ItemStatus")
-                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
@@ -132,7 +134,7 @@ namespace LostItems.API.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("LostItems.API.Models.User", "Loster")
+                    b.HasOne("LostItems.API.Models.User", "Loser")
                         .WithMany()
                         .HasForeignKey("LoserId")
                         .OnDelete(DeleteBehavior.Restrict)
@@ -140,7 +142,7 @@ namespace LostItems.API.Migrations
 
                     b.Navigation("Item");
 
-                    b.Navigation("Loster");
+                    b.Navigation("Loser");
                 });
 #pragma warning restore 612, 618
         }
