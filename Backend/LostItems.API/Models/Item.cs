@@ -29,5 +29,9 @@ namespace LostItems.API.Models
 
         [ForeignKey("FounderId")]
         public User Founder { get; set; }
+
+        [MaxLength(100)]
+        public string Building { get; set; }
+
     }
 }
