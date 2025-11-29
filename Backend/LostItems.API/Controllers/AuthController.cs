@@ -1,74 +1,85 @@
-﻿using LostItems.API.TemporaryAuthModels;
-using Microsoft.AspNetCore.Identity;
+﻿using LostItems.API.Data;
+using LostItems.API.Enums;
+using LostItems.API.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
+using BCrypt.Net;
+using LostItems.API.Interfaces.Repositories;
 
 [ApiController]
 [Route("api/[controller]")]
 public class AuthController : ControllerBase
 {
-    private readonly UserManager<ApplicationUser> _userManager;
+    private readonly AppDbContext _dbContext;
     private readonly IConfiguration _configuration;
+    private readonly IUserRepository _userRepository;
 
-    public AuthController(UserManager<ApplicationUser> userManager, IConfiguration configuration)
+    public AuthController(AppDbContext dbContext, IConfiguration configuration, IUserRepository userRepository)
     {
-        _userManager = userManager;
+        _dbContext = dbContext;
         _configuration = configuration;
+        _userRepository = userRepository;
     }
 
-    public record RegisterDto(string Username, string Password);
-    public record LoginDto(string Username, string Password);
+    public record RegisterDto(string Email, string Password);
+    public record LoginDto(string Email, string Password);
     public record AuthResponseDto(string Token);
 
     [HttpPost("register")]
     public async Task<IActionResult> Register([FromBody] RegisterDto dto)
     {
-        var user = new ApplicationUser { UserName = dto.Username, Email = dto.Username + "@placeholder.com" };
-        var result = await _userManager.CreateAsync(user, dto.Password);
+        var exists = await _dbContext.Users.AnyAsync(u => u.Email == dto.Email);
+        if (exists)
+            return BadRequest(new { Message = "User already exists" });
 
-        if (!result.Succeeded)
+        var user = new User
         {
-            return BadRequest(result.Errors);
-        }
+            Email = dto.Email,
+            PasswordHash = BCrypt.Net.BCrypt.HashPassword(dto.Password),
+            Role = RoleEnum.User
+        };
 
-        return Ok(new { Message = "User created successfully!" });
-    }
-
-    [HttpPost("login")]
-    public async Task<IActionResult> Login([FromBody] LoginDto dto)
-    {
-        var user = await _userManager.FindByNameAsync(dto.Username);
-        
-        if (user == null || !await _userManager.CheckPasswordAsync(user, dto.Password))
-        {
-            return Unauthorized("Invalid credentials");
-        }
+        await _userRepository.AddAsync(user);
 
         var token = GenerateJwtToken(user);
         return Ok(new AuthResponseDto(token));
     }
 
-    private string GenerateJwtToken(ApplicationUser user)
+    [HttpPost("login")]
+    public async Task<IActionResult> Login([FromBody] LoginDto dto)
     {
-        var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]!));
-        var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
+        var user = await _dbContext.Users.FirstOrDefaultAsync(u => u.Email == dto.Email);
+        if (user == null || !BCrypt.Net.BCrypt.Verify(dto.Password, user.PasswordHash))
+            return Unauthorized(new { Message = "Invalid credentials" });
+
+        var token = GenerateJwtToken(user);
+        return Ok(new AuthResponseDto(token));
+    }
+
+    private string GenerateJwtToken(User user)
+    {
+        var key = Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]!);
 
         var claims = new[]
         {
-            new Claim(JwtRegisteredClaimNames.Sub, user.UserName!),
-            new Claim(ClaimTypes.Name, user.UserName!),
-            new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
+            new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
+            new Claim(ClaimTypes.Email, user.Email),
+            new Claim(ClaimTypes.Role, user.Role.ToString())
         };
+
+        var creds = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256);
 
         var token = new JwtSecurityToken(
             issuer: _configuration["Jwt:Issuer"],
             audience: _configuration["Jwt:Audience"],
             claims: claims,
-            expires: DateTime.Now.AddHours(1),
-            signingCredentials: credentials);
+            expires: DateTime.UtcNow.AddHours(6),
+            signingCredentials: creds
+        );
 
         return new JwtSecurityTokenHandler().WriteToken(token);
     }
