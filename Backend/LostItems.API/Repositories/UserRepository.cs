@@ -14,19 +14,19 @@ namespace LostItems.API.Repositories
             _db = db;
         }
 
-        public async Task AddUserAsync(User user)
+        public async Task AddAsync(User user)
         {
             user.Id = Guid.NewGuid();
             await _db.Users.AddAsync(user);
             await _db.SaveChangesAsync();
         }
 
-        public async Task<List<User>> GetAllUsersAsync()
+        public async Task<List<User>> GetAllAsync()
         {
             return await _db.Users.ToListAsync();
         }
 
-        public async Task<User?> GetUserByIdAsync(Guid id)
+        public async Task<User?> GetByIdAsync(Guid id)
         {
             return await _db.Users.FirstOrDefaultAsync(x => x.Id == id);
         }

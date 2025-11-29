@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LostItems.API.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20251122115930_InitialFixed")]
-    partial class InitialFixed
+    [Migration("20251129105535_RemoveLocation")]
+    partial class RemoveLocation
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -31,27 +31,24 @@ namespace LostItems.API.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
+
                     b.Property<DateTime>("FoundDate")
                         .HasColumnType("datetime2");
 
                     b.Property<Guid>("FounderId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<bool>("IsReturned")
-                        .HasColumnType("bit");
+                    b.Property<int>("ItemStatus")
+                        .HasColumnType("int");
 
-                    b.Property<string>("ItemDescription")
-                        .IsRequired()
-                        .HasMaxLength(500)
-                        .HasColumnType("nvarchar(500)");
-
-                    b.Property<string>("ItemName")
+                    b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(200)
                         .HasColumnType("nvarchar(200)");
-
-                    b.Property<int>("ItemStatus")
-                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
@@ -69,7 +66,7 @@ namespace LostItems.API.Migrations
                     b.Property<Guid>("ItemId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("LosterId")
+                    b.Property<Guid>("LoserId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("RetDate")
@@ -79,7 +76,7 @@ namespace LostItems.API.Migrations
 
                     b.HasIndex("ItemId");
 
-                    b.HasIndex("LosterId");
+                    b.HasIndex("LoserId");
 
                     b.ToTable("ReturnedItems");
                 });
@@ -132,15 +129,15 @@ namespace LostItems.API.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("LostItems.API.Models.User", "Loster")
+                    b.HasOne("LostItems.API.Models.User", "Loser")
                         .WithMany()
-                        .HasForeignKey("LosterId")
+                        .HasForeignKey("LoserId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("Item");
 
-                    b.Navigation("Loster");
+                    b.Navigation("Loser");
                 });
 #pragma warning restore 612, 618
         }

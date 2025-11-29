@@ -1,6 +1,8 @@
 using LostItems.API.Data;
 using LostItems.API.Interfaces.Repositories;
+using LostItems.API.Interfaces.Services;
 using LostItems.API.Repositories;
+using LostItems.API.Services;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -8,16 +10,17 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
+//repos
 builder.Services.AddScoped<IItemRepository, ItemRepository>();
 builder.Services.AddScoped<IReturnedItemRepository, ReturnedItemRepository>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 
+//services
+builder.Services.AddScoped<IFilterService, FilterService>();
+
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-
-//services
-//repos
 
 var app = builder.Build();
 

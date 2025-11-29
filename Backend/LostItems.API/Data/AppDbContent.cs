@@ -22,9 +22,9 @@ namespace LostItems.API.Data
                 .OnDelete(DeleteBehavior.Restrict); 
 
             modelBuilder.Entity<ReturnedItem>()
-                .HasOne(r => r.Loster)
+                .HasOne(r => r.Loser)
                 .WithMany()
-                .HasForeignKey(r => r.LosterId)
+                .HasForeignKey(r => r.LoserId)
                 .OnDelete(DeleteBehavior.Restrict); 
 
             modelBuilder.Entity<ReturnedItem>()

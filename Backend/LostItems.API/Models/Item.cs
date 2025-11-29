@@ -10,10 +10,10 @@ namespace LostItems.API.Models
         public Guid Id { get; set; } = Guid.NewGuid();
 
         [Required, MaxLength(200)]
-        public string ItemName { get; set; }
+        public string Name { get; set; }
 
         [MaxLength(500)]
-        public string ItemDescription { get; set; }
+        public string Description { get; set; }
 
         [Required]
         public DateTime FoundDate { get; private set; } = DateTime.UtcNow;
@@ -22,12 +22,10 @@ namespace LostItems.API.Models
         public ItemStatusEnum ItemStatus { get; set; } = ItemStatusEnum.Found;
 
         [Required]
-        public bool IsReturned { get; set; } = false;
-
-        [Required]
         public Guid FounderId { get; set; }
 
         [ForeignKey("FounderId")]
         public User Founder { get; set; }
+
     }
 }

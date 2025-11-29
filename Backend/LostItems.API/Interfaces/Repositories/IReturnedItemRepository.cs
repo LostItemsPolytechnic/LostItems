@@ -7,7 +7,7 @@ namespace LostItems.API.Interfaces.Repositories
 {
     public interface IReturnedItemRepository
     {
-        Task AddReturnedItemAsync(ReturnedItem ret);
-        Task<List<ReturnedItem>> GetAllReturnedAsync();
+        Task AddAsync(ReturnedItem ret);
+        Task<List<ReturnedItem>> GetAllAsync();
     }
 }
