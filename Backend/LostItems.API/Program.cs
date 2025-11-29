@@ -7,8 +7,6 @@ using Microsoft.EntityFrameworkCore;
 using LostItems.API.TemporaryAuthModels;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.UI.Services;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 
@@ -26,7 +24,6 @@ builder.Services.AddScoped<IUserRepository, UserRepository>();
 //services
 builder.Services.AddScoped<IFilterService, FilterService>();
 
-
 builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options =>
 {
     options.Password.RequireDigit = false;
@@ -38,7 +35,6 @@ builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options =>
     options.User.RequireUniqueEmail = false;
     options.User.AllowedUserNameCharacters = "";
 })
-
 .AddEntityFrameworkStores<ApplicationDbContext>()
 .AddDefaultTokenProviders();
 
@@ -64,9 +60,8 @@ builder.Services.AddAuthentication(options =>
     };
 });
 
+builder.Services.AddAuthentication();
 builder.Services.AddAuthorization();
-builder.Services.AddSingleton<UISender, DummyEmailSender>();
-builder.Services.AddSingleton<OldSender, DummyEmailSender>();
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
