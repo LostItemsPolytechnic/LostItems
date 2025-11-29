@@ -6,7 +6,7 @@
         public string Name { get; set; }
         public string Description { get; set; }
         public string ImgUrl { get; set; }
-        public DateTime FoundTime { get; set; }
+        public DateTime? FoundTime { get; set; }
         public string Building { get; set; }
     }
 }
