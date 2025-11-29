@@ -23,7 +23,6 @@ namespace LostItems.API.Repositories
                 Id = Guid.NewGuid(),
                 Name = item.Name,
                 Description = item.Description,
-                Location = item.Location,
                 ItemStatus = ItemStatusEnum.Found,
                 FounderId = item.FounderId,
             };
