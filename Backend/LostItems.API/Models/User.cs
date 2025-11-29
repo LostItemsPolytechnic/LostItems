@@ -14,12 +14,6 @@ namespace LostItems.API.Models
         [Required, MinLength(6)]
         public string PasswordHash { get; set; }
 
-        [Range(0, int.MaxValue)]
-        public int NumOfFoundedItems { get; set; }
-
-        [Range(0, int.MaxValue)]
-        public int NumOfLostItems { get; set; }
-
         [Required]
         public RoleEnum Role { get; set; } = RoleEnum.User;
     }
