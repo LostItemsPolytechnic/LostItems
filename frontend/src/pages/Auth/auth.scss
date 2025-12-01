@@ -1,0 +1,104 @@
+.auth {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+}
+
+.modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    border: 1px solid var(--color-grey-91);
+    border-radius: 8px;
+    padding: 32px 0 48px;
+    width: 384px;
+    height: 455px;
+    text-align: center;
+    display: block;
+
+    &__title {
+        font-family: var(--font-family);
+        font-weight: 400;
+        font-size: 24px;
+        line-height: 133%;
+        text-align: center;
+        color: var(--color-azure-11);
+    }
+
+    &__title_under {
+        font-family: var(--font-family);
+        font-weight: 400;
+        font-size: 11px;
+        line-height: 138%;
+        text-align: center;
+        color: var(--color-grey-46);
+        margin: 4px 0 24px 0;
+    }
+
+    &__btn {
+        padding: 8px 0px;
+        width: 158px;
+        height: 36px;
+
+        font-family: var(--font-family);
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 143%;
+        text-align: center;
+        color: var(--color-azure-27);
+
+        &-active {
+            color: var(--color-white-solid);
+            background: var(--ebony);
+        }
+    }
+
+    &__group {
+        display: inline-block;
+    }
+
+    &__label {
+        text-align: left;
+        font-family: var(--font-family);
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 143%;
+        color: var(--color-azure-27);
+        margin-bottom: 4px;
+        display: block;
+    }
+
+    &__input {
+        border: 1px solid var(--color-azure-84);
+        border-radius: 6px;
+        padding: 10px 12px 9px;
+        width: 318px;
+        height: 43px;
+        background: var(--color-white-solid);
+        font-family: var(--font-family);
+        font-weight: 400;
+        font-size: 14px;
+        color: var(--color-azure-65);
+    }
+
+    &__submit {
+        border-radius: 6px;
+        padding: 10px 0px;
+        width: 318px;
+        height: 40px;
+        background: var(--ebony);
+        font-family: var(--font-family);
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 143%;
+        text-align: center;
+        color: var(--white);
+
+        &:hover {
+            background-color: white;
+            color: var(--oxford-blue);
+        }
+    }
+}
