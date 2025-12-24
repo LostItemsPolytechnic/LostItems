@@ -1,4 +1,6 @@
-const Header = () => {
+import './header.scss';
+
+const Header: React.FC<{ onLogOut: () => void }> = ({ onLogOut }) => {
     return (
         <header className="header">
             <div className="container">
@@ -6,8 +8,10 @@ const Header = () => {
                     Campus Lost & Found
                 </a>
                 <div className="header__right_wrapper">
-                    <button className="header__btn">Profile</button>
-                    <button className="header__btn">Logout</button>
+                    {/* <button className="header__btn">Profile</button> */}
+                    <button className="header__btn" onClick={onLogOut}>
+                        Logout
+                    </button>
                 </div>
             </div>
         </header>

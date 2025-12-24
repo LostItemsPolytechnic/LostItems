@@ -4,7 +4,7 @@
     height: 100vh;
 }
 
-.modal {
+.auth-modal {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -27,7 +27,7 @@
         color: var(--color-azure-11);
     }
 
-    &__title_under {
+    &__title-under {
         font-family: var(--font-family);
         font-weight: 400;
         font-size: 11px;
@@ -49,7 +49,7 @@
         text-align: center;
         color: var(--color-azure-27);
 
-        &-active {
+        &--active {
             color: var(--color-white-solid);
             background: var(--ebony);
         }
@@ -80,7 +80,6 @@
         font-family: var(--font-family);
         font-weight: 400;
         font-size: 14px;
-        color: var(--color-azure-65);
     }
 
     &__submit {
@@ -97,8 +96,7 @@
         color: var(--white);
 
         &:hover {
-            background-color: white;
-            color: var(--oxford-blue);
+            background: var(--ebony-clay);
         }
     }
 }

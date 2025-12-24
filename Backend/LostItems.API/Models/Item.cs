@@ -19,7 +19,7 @@ namespace LostItems.API.Models
         public DateTime FoundDate { get; private set; } = DateTime.UtcNow;
 
         [Required]
-        public ItemStatusEnum ItemStatus { get; set; } = ItemStatusEnum.Found;
+        public ItemStatusEnum Status { get; set; } = ItemStatusEnum.Found;
 
         [Required]
         public Guid FounderId { get; set; }

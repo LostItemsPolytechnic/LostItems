@@ -1,0 +1,72 @@
+.main-modal .modal-dialog {
+    max-width: 448px;
+    width: 100%;
+}
+
+.main-modal__input {
+    width: 100%;
+}
+
+.main-modal__btn {
+    width: 100%;
+}
+
+.main-modal {
+    &__title {
+        font-family: var(--font-family);
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 140%;
+        color: var(--black);
+    }
+
+    &__label {
+        font-family: var(--font-family);
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 143%;
+        color: var(--oxford-blue);
+        margin-bottom: 4px;
+    }
+
+    &__input {
+        border: 1px solid var(--mischka);
+        width: 382px;
+        height: 38px;
+
+        &-descr {
+            height: 78px;
+        }
+    }
+
+    &__btn {
+        display: block;
+        text-align: center;
+        width: 382px;
+        height: 36px;
+        font-family: var(--font-family);
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 143%;
+        text-align: center;
+        color: var(--white);
+        background: var(--black);
+        border: none;
+        border-radius: 0;
+
+        &:hover {
+            background: var(--ebony-clay);
+        }
+
+        &-cancel {
+            color: var(--river-bed);
+            margin-top: 14px;
+            background-color: rgba($color: #000000, $alpha: 0);
+
+            &:hover {
+                color: var(--ebony-clay);
+                background-color: rgba($color: #000000, $alpha: 0);
+            }
+        }
+    }
+}

@@ -3,23 +3,28 @@ using LostItems.API.Enums;
 using LostItems.API.Interfaces.Repositories;
 using LostItems.API.Interfaces.Services;
 using LostItems.API.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace LostItems.API.Controllers
 {
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("api/items")]
+    [Authorize]
     public class ItemController : ControllerBase
     {
         private readonly IItemRepository _itemRepo;
         private readonly IReturnedItemRepository _returnedItemRepo;
         private readonly IFilterService _filterService;
+        private readonly IUserContextService _userContextService;
 
-        public ItemController(IItemRepository itemService, IReturnedItemRepository returnedItemRepo, IFilterService filterService)
+        public ItemController(IItemRepository itemService, IReturnedItemRepository 
+                returnedItemRepo, IFilterService filterService, IUserContextService userContextService)
         {
             _itemRepo = itemService;
             _returnedItemRepo = returnedItemRepo;
             _filterService = filterService;
+            _userContextService = userContextService;
         }
 
         [HttpGet]
@@ -31,7 +36,7 @@ namespace LostItems.API.Controllers
                 Id = item.Id,
                 Name = item.Name,
                 Description = item.Description,
-                Status = item.ItemStatus
+                Status = item.Status
             }).ToList();
 
             return Ok(listItems);
@@ -49,6 +54,10 @@ namespace LostItems.API.Controllers
         public async Task<IActionResult> Create([FromBody] AddItemDto dto)
         {
             if (dto == null) return BadRequest();
+
+            var userId = _userContextService.GetUserId();
+            
+            dto.FounderId = userId;
 
             await _itemRepo.AddAsync(dto);
             return Created();
@@ -70,21 +79,23 @@ namespace LostItems.API.Controllers
             return Ok(new { message = "Deleted" });
         }
 
-        [HttpPost("return/{id}")]
-        public async Task<IActionResult> MarkReturned(Guid id, [FromQuery] Guid loserId)
+        [HttpPut("return/{id}")]
+        public async Task<IActionResult> MarkReturned(Guid id)
         {
+            var userId = _userContextService.GetUserId();
+
             await _itemRepo.UpdateItemStatusAsync(id, ItemStatusEnum.Returned);
             await _returnedItemRepo.AddAsync(new ReturnedItem
             {
                 ItemId = id,
-                LoserId = loserId
+                LoserId = userId
             });
 
             return Ok(new { message = "Marked returned" });
         }
         
         [HttpGet("filter")]
-        public async Task<IActionResult> GetFiltered([FromBody] FilterDto filterDto)
+        public async Task<IActionResult> GetFiltered([FromQuery] FilterDto filterDto)
         {
             var items = await _itemRepo.GetAllAsync();
 
@@ -99,15 +110,15 @@ namespace LostItems.API.Controllers
             }
             if(filterDto.Status != null)
             {
-                items = items.Where(i => i.ItemStatus == filterDto.Status).ToList();
+                items = items.Where(i => i.Status == filterDto.Status).ToList();
             }
 
             var listItems = items.Select(item => new ListItemDto
             {
                 Id = item.Id,
                 Name = item.Name,
-                Description = item.Description,
-                Status = item.ItemStatus
+                Description = item.Description.Length > 59 ? item.Description.Substring(0, 59) + "..." : item.Description,
+                Status = item.Status
             }).ToList();
 
             return Ok(listItems);

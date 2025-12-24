@@ -1,0 +1,76 @@
+.card {
+    border: 1px solid var(--athens-gray);
+    border-radius: 8px;
+    padding: 16px;
+    max-width: 672px;
+    height: 130px;
+    gap: 16px;
+    flex-direction: row;
+    min-width: 625px;
+
+    &__img {
+        border-radius: 4px;
+        width: 96px;
+        height: 96px;
+    }
+
+    &__right {
+        width: 100%;
+
+        &-title {
+            font-family: var(--font-family);
+            font-weight: 400;
+            font-size: 18px;
+            line-height: 156%;
+            color: var(--ebony);
+        }
+
+        &-descr {
+            font-family: var(--font-family);
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 143%;
+            color: var(--river-bed);
+            margin: 4px 0 15px 0;
+        }
+
+        &-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        &-info {
+            border-radius: 4px;
+            padding: 0 4px;
+            height: 24px;
+            font-family: var(--font-family);
+            font-weight: 400;
+            font-size: 12px;
+            line-height: 24px;
+            text-align: center;
+
+            &--found {
+                color: var(--jewel);
+                background: var(--scandal);
+            }
+
+            &--returned {
+                color: var(--ebony-clay);
+                background: var(--athens-gray);
+            }
+        }
+
+        &-btn {
+            border: none;
+            border-radius: 4px;
+            width: 108px;
+            height: 36px;
+            font-family: var(--font-family);
+            font-weight: 400;
+            font-size: 14px;
+            text-align: center;
+            color: var(--white);
+        }
+    }
+}

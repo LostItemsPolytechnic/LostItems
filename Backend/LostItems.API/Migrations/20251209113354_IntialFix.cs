@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace LostItems.API.Migrations
 {
     /// <inheritdoc />
-    public partial class InternalFix : Migration
+    public partial class IntialFix : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -18,8 +18,6 @@ namespace LostItems.API.Migrations
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Email = table.Column<string>(type: "nvarchar(150)", maxLength: 150, nullable: false),
                     PasswordHash = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    NumOfFoundedItems = table.Column<int>(type: "int", nullable: false),
-                    NumOfLostItems = table.Column<int>(type: "int", nullable: false),
                     Role = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
@@ -35,9 +33,8 @@ namespace LostItems.API.Migrations
                     Name = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: false),
                     Description = table.Column<string>(type: "nvarchar(500)", maxLength: 500, nullable: false),
                     FoundDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    ItemStatus = table.Column<int>(type: "int", nullable: false),
-                    FounderId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    Location = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false)
+                    Status = table.Column<int>(type: "int", nullable: false),
+                    FounderId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                 },
                 constraints: table =>
                 {

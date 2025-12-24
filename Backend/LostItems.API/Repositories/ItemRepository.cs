@@ -23,7 +23,7 @@ namespace LostItems.API.Repositories
                 Id = Guid.NewGuid(),
                 Name = item.Name,
                 Description = item.Description,
-                ItemStatus = ItemStatusEnum.Found,
+                Status = ItemStatusEnum.Found,
                 FounderId = item.FounderId,
             };
 
@@ -67,7 +67,7 @@ namespace LostItems.API.Repositories
             var item = await _db.Items.FirstOrDefaultAsync(x => x.Id == id);
             if (item == null) return;
 
-            item.ItemStatus = newStatus;
+            item.Status = newStatus;
             await _db.SaveChangesAsync();
         }
     }

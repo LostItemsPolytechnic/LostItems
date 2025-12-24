@@ -29,4 +29,17 @@ ul {
     margin: 0;
 }
 
+.button-blue {
+    background: var(--royal-blue);
+    border: none;
+
+    &:hover {
+        background: var(--persian-blue);
+    }
+
+    &:disabled {
+        background-color: grey;
+    }
+}
+
 @import './tokens';

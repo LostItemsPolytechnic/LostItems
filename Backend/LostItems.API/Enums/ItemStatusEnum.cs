@@ -2,7 +2,7 @@
 {
     public enum ItemStatusEnum
     {
-        Found,
-        Returned
+        Found = 0,
+        Returned = 1
     }
 }

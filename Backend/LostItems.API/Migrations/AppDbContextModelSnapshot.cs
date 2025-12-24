@@ -39,13 +39,13 @@ namespace LostItems.API.Migrations
                     b.Property<Guid>("FounderId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<int>("ItemStatus")
-                        .HasColumnType("int");
-
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(200)
                         .HasColumnType("nvarchar(200)");
+
+                    b.Property<int>("Status")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 

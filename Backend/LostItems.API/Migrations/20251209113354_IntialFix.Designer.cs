@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LostItems.API.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20251129123342_RemoveCountsInUser")]
-    partial class RemoveCountsInUser
+    [Migration("20251209113354_IntialFix")]
+    partial class IntialFix
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -42,13 +42,13 @@ namespace LostItems.API.Migrations
                     b.Property<Guid>("FounderId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<int>("ItemStatus")
-                        .HasColumnType("int");
-
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(200)
                         .HasColumnType("nvarchar(200)");
+
+                    b.Property<int>("Status")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 

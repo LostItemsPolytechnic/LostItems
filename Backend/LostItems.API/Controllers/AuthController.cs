@@ -1,17 +1,18 @@
 ﻿using LostItems.API.Data;
 using LostItems.API.Enums;
+using LostItems.API.Interfaces.Repositories;
 using LostItems.API.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
-using BCrypt.Net;
-using LostItems.API.Interfaces.Repositories;
 
 [ApiController]
 [Route("api/[controller]")]
+[AllowAnonymous]
 public class AuthController : ControllerBase
 {
     private readonly AppDbContext _dbContext;
@@ -46,18 +47,40 @@ public class AuthController : ControllerBase
         await _userRepository.AddAsync(user);
 
         var token = GenerateJwtToken(user);
-        return Ok(new AuthResponseDto(token));
+        Response.Cookies.Append("accessToken", token, new CookieOptions
+        {
+            HttpOnly = true,
+            Secure = true,
+            SameSite = SameSiteMode.Lax,
+            Expires = DateTime.UtcNow.AddDays(1)
+        });
+        return Ok();
+    }
+
+    [HttpPost("log-out")]
+    public IActionResult Logout()
+    {
+        Response.Cookies.Delete("refreshToken");
+        return Ok(new { Message = "Logged out" });
     }
 
     [HttpPost("login")]
     public async Task<IActionResult> Login([FromBody] LoginDto dto)
     {
         var user = await _dbContext.Users.FirstOrDefaultAsync(u => u.Email == dto.Email);
+
         if (user == null || !BCrypt.Net.BCrypt.Verify(dto.Password, user.PasswordHash))
-            return Unauthorized(new { Message = "Invalid credentials" });
+            return BadRequest(new { Message = "Invalid credentials" });
 
         var token = GenerateJwtToken(user);
-        return Ok(new AuthResponseDto(token));
+        Response.Cookies.Append("accessToken", token, new CookieOptions
+        {
+            HttpOnly = true,
+            Secure = true,
+            SameSite = SameSiteMode.Lax,
+            Expires = DateTime.UtcNow.AddDays(1)
+        });
+        return Ok();
     }
 
     private string GenerateJwtToken(User user)
@@ -77,10 +100,22 @@ public class AuthController : ControllerBase
             issuer: _configuration["Jwt:Issuer"],
             audience: _configuration["Jwt:Audience"],
             claims: claims,
-            expires: DateTime.UtcNow.AddHours(6),
+            expires: DateTime.UtcNow.AddDays(1),
             signingCredentials: creds
         );
 
         return new JwtSecurityTokenHandler().WriteToken(token);
+    }
+
+    [HttpGet("me")]
+    [Authorize]
+    public async Task<IActionResult> Me()
+    {
+        return Ok(new
+        {
+            Email = User.FindFirst(ClaimTypes.Email)?.Value,
+            Role = User.FindFirst(ClaimTypes.Role)?.Value,
+            UserId = User.FindFirst("userId")?.Value
+        }); 
     }
 }
